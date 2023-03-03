@@ -1,0 +1,22 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "# farhan",
+  "main": "hangman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BritishBambi/hangman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BritishBambi/hangman/issues"
+  },
+  "homepage": "https://github.com/BritishBambi/hangman#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
