@@ -6,31 +6,31 @@ document.getElementById("start").addEventListener("click", function() {
     // Randomly select a word from the array
     var word = words[Math.floor(Math.random() * words.length)];
 
-    
-// Set up the answer array
-var answerArray = [];
-for (var i = 0; i < word.length; i++) {
-    answerArray[i] = "_";
-}
 
-// Number of remaining letters to be guessed
-var remainingLetters = word.length;
+    // Set up the answer array
+    var answerArray = [];
+    for (var i = 0; i < word.length; i++) {
+        answerArray[i] = "_";
+    }
 
-// Track the letters that have been guessed
-var guessedLetters = [];
+    // Number of remaining letters to be guessed
+    var remainingLetters = word.length;
 
-// Number of lives remaining
-var lives = 6;
+    // Track the letters that have been guessed
+    var guessedLetters = [];
 
-// Track the incorrect guesses
-var incorrectGuesses = [];
+    // Number of lives remaining
+    var lives = 6;
 
-// Draw the game loop
-function guessLetter(event) {
-    // Get the player's guess
-    var guess = event.key.toLowerCase();
-    if (guess.length > 1 || guess == " " || event.code.length != 4) return;  
-    
+    // Track the incorrect guesses
+    var incorrectGuesses = [];
+
+    // Draw the game loop
+    function guessLetter(event) {
+        // Get the player's guess
+        var guess = event.key.toLowerCase();
+        if (guess.length > 1 || guess == " " || event.code.length != 4) return;
+
         // If the guess has already been made, display an error message
         if (guessedLetters.includes(guess)) {
             document.getElementById("guesses").innerHTML = "You already guessed that letter!";
@@ -65,6 +65,7 @@ function guessLetter(event) {
         if (remainingLetters === 0) {
             document.getElementById("guesses").innerHTML = "Congratulations! You won!";
             document.removeEventListener("keydown", guessLetter);
+            document.getElementById("play-again").style.display = "block";
         } else if (lives === 0) {
             document.getElementById("guesses").innerHTML = "Game over. The word was " + word + ".";
             document.removeEventListener("keydown", guessLetter);
