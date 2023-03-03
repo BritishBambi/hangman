@@ -1,0 +1,12 @@
+body {
+    background-color: #f4fd78;
+}
+
+#info {
+    font-size: 1.5rem;
+}
+
+#play-again {
+    display: none;
+    margin: 0 auto;
+}
