@@ -64,9 +64,7 @@ function guessLetter(event) {
     }
 }
 
-document.getElementById("start").addEventListener("click", function() {
-    document.getElementById("start").style.display = "none";
-});
+
 
 // Set up the initial display
 document.getElementById("word").innerHTML = answerArray.join(" ");
