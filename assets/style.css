@@ -5,3 +5,8 @@ body {
 #info {
     font-size: 1.5rem;
 }
+
+#play-again {
+    display: none;
+    margin: 0 auto;
+}
