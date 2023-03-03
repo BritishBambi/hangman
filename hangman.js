@@ -29,7 +29,8 @@ function guessLetter(event) {
     // Get the player's guess
     var guess = event.key.toLowerCase();
     console.log(guess);
-    if (guess.length > 1 || guess == " ") return;
+    console.log(event)
+    if (guess.length > 1 || guess == " " || event.code.length != 4) return;
         
        
 
