@@ -29,22 +29,8 @@ var incorrectGuesses = [];
 function guessLetter(event) {
     // Get the player's guess
     var guess = event.key.toLowerCase();
-    console.log(guess);
-    console.log(event)
-    if (guess.length > 1 || guess == " " || event.code.length != 4) return;
-        
-       
-
+    if (guess.length > 1 || guess == " " || event.code.length != 4) return;  
     
-    var guess = event.key.toLowerCase();
-    
-    // If the guess has already been made, display an error message
-    if (guessedLetters.includes(guess)) {
-        document.getElementById("guesses").innerHTML = "You already guessed that letter!";
-        return;
-    }
-    
-
         // If the guess has already been made, display an error message
         if (guessedLetters.includes(guess)) {
             document.getElementById("guesses").innerHTML = "You already guessed that letter!";
