@@ -1,6 +1,11 @@
-// Randomly select a word from the array
-var word = words[Math.floor(Math.random() * words.length)];
+//import { createRequire } from '/module';
+import words from '/words.js';
 
+document.getElementById("start").addEventListener("click", function() {
+    document.getElementById("start").style.display = "none";
+    // Randomly select a word from the array
+    var word = words[Math.floor(Math.random() * words.length)];
+    
 // Set up the answer array
 var answerArray = [];
 for (var i = 0; i < word.length; i++) {
@@ -23,16 +28,16 @@ var incorrectGuesses = [];
 function guessLetter(event) {
     // Get the player's guess
     var guess = event.key.toLowerCase();
-
+    
     // If the guess has already been made, display an error message
     if (guessedLetters.includes(guess)) {
         document.getElementById("guesses").innerHTML = "You already guessed that letter!";
         return;
     }
-
+    
     // Add the guess to the list of guessed letters
     guessedLetters.push(guess);
-
+    
     // Check if the guess is correct
     var correctGuess = false;
     for (var i = 0; i < word.length; i++) {
@@ -42,7 +47,7 @@ function guessLetter(event) {
             remainingLetters--;
         }
     }
-
+    
     // If the guess is incorrect, track it
     if (!correctGuess) {
         lives--;
@@ -53,7 +58,7 @@ function guessLetter(event) {
     document.getElementById("word").innerHTML = answerArray.join(" ");
     document.getElementById("guesses").innerHTML = "Letters guessed: " + guessedLetters.join(", ");
     document.getElementById("lives").innerHTML = "Lives left: " + lives;
-
+    
     // Check if the game is over
     if (remainingLetters === 0) {
         document.getElementById("guesses").innerHTML = "Congratulations! You won!";
@@ -64,9 +69,6 @@ function guessLetter(event) {
     }
 }
 
-document.getElementById("start").addEventListener("click", function() {
-    document.getElementById("start").style.display = "none";
-});
 
 // Set up the initial display
 document.getElementById("word").innerHTML = answerArray.join(" ");
@@ -75,3 +77,4 @@ document.getElementById("lives").innerHTML = "Lives left: " + lives;
 
 // Add the event listener for keystrokes
 document.addEventListener("keydown", guessLetter);
+});
