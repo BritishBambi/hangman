@@ -6,29 +6,31 @@ document.getElementById("start").addEventListener("click", function() {
     // Randomly select a word from the array
     var word = words[Math.floor(Math.random() * words.length)];
 
-    // Set up the answer array
-    var answerArray = [];
-    for (var i = 0; i < word.length; i++) {
-        answerArray[i] = "_";
-    }
+    
+// Set up the answer array
+var answerArray = [];
+for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+}
 
-    // Number of remaining letters to be guessed
-    var remainingLetters = word.length;
+// Number of remaining letters to be guessed
+var remainingLetters = word.length;
 
-    // Track the letters that have been guessed
-    var guessedLetters = [];
+// Track the letters that have been guessed
+var guessedLetters = [];
 
-    // Number of lives remaining
-    var lives = 6;
+// Number of lives remaining
+var lives = 6;
 
-    // Track the incorrect guesses
-    var incorrectGuesses = [];
+// Track the incorrect guesses
+var incorrectGuesses = [];
 
-    // Draw the game loop
-    function guessLetter(event) {
-        // Get the player's guess
-        var guess = event.key.toLowerCase();
-
+// Draw the game loop
+function guessLetter(event) {
+    // Get the player's guess
+    var guess = event.key.toLowerCase();
+    if (guess.length > 1 || guess == " " || event.code.length != 4) return;  
+    
         // If the guess has already been made, display an error message
         if (guessedLetters.includes(guess)) {
             document.getElementById("guesses").innerHTML = "You already guessed that letter!";
